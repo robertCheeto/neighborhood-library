@@ -15,6 +15,17 @@ public class Book {
         this.isCheckedOutTo = isCheckedOutTo;
     } // Book Constructor
 
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookID=" + bookID +
+                ", isbn='" + isbn + '\'' +
+                ", title='" + title + '\'' +
+                ", isCheckedOut=" + isCheckedOut +
+                ", isCheckedOutTo='" + isCheckedOutTo + '\'' +
+                '}';
+    }
+
     public int getBookID() {
         return bookID;
     }
