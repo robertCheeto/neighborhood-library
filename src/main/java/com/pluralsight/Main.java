@@ -14,7 +14,32 @@ public class Main {
                 new Book(0005, "401-4-41-4141-4", "Book Title 4.5", true, "Mary Lou")
         };
 
-        System.out.println();
+        System.out.println("=== Welcome to the CommUNITY Library ===\n");
+
+        while (true) {
+            System.out.println("Select the menu you would like to access by entering the corresponding number");
+            System.out.println("1) Show All Books");
+            System.out.println("2) Show Checked Out Books");
+            System.out.println("3) Exit Program");
+
+            int userInput = keyboard.nextInt();
+            keyboard.nextLine();
+
+            switch (userInput) {
+                case (1):
+                    System.out.println("Showing available books...");
+                    break;
+                case (2):
+                    System.out.println("Showing checked out books...");
+                    break;
+                case (3):
+                    System.out.println("Exiting the program");
+                    // turn true to false and exit program
+                default:
+                    System.out.println("Please enter a valid value.");
+            } // end of switch case
+
+        } // end of while loop
 
     }
 }
