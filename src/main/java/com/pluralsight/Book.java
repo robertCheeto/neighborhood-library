@@ -54,4 +54,15 @@ public class Book {
     public void setIsCheckedOutTo(String isCheckedOutTo) {
         this.isCheckedOutTo = isCheckedOutTo;
     }
+
+
+    // TO-DO: add code to get the checkOut and checkIn data for the books
+    public void checkOut() {
+
+    } // checkOut method
+
+    public void checkIn() {
+
+    } // checkIn method
+
 }
