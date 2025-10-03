@@ -47,7 +47,8 @@ public class Main {
                     break;
 
                     case (3):
-                    System.out.println("Exiting the program");
+                    System.out.println("Exiting the program...");
+                    System.exit(0);
                     // turn true to false and exit program
 
                 default:
@@ -70,9 +71,8 @@ public class Main {
         for (Book book : bookInventory) {
             if (book.isCheckedOut()) {
                 System.out.printf("Book ID: %s\t\t Book ISBN: %s\t\t Book Title: %s\t\t Checked Out To: %s\n", book.getBookID(), book.getIsbn(), book.getTitle(), book.getIsCheckedOutTo());
-            }
-        }
-
-    }
+            } // end of if statement
+        } // end of for loop
+    } // end of listCheckedOutBooks
 
 }
