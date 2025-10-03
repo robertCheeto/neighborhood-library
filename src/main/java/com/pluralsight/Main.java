@@ -15,19 +15,19 @@ public class Main {
                 new Book(4505, "401-9-43-0934-5","Fahrenheit 451", true, "Mary Lou"),
                 new Book(6520, "590-3-30-3030-6","Rich Dad, Poor Dad", false, ""),
                 new Book(8008, "012-8-99-2384-7","The Symposium", true, "Jarred Schlatter"),
-                new Book(5123, "300-3-30-3030-8","Harry Potter and the Sorcerer's Stone", false, ""),
-                new Book(2718, "300-3-30-3030-9","Wheel of Time - New Spring", false, ""),
-                new Book(9113, "300-3-30-3030-0","The Stormlight Archive: The Way of Kings", true, "Dave Stein"),
-                new Book(3640, "300-3-30-3030-1","Lone Survivor", true, "George McCartney"),
-                new Book(4912, "300-3-30-3030-2","The Art of War", false, ""),
-                new Book(7190, "300-3-30-3030-3","The Love Hypothesis", true, "Caroline Oak"),
-                new Book(8280, "300-3-30-3030-4","The Fault in Our Stars", false, ""),
-                new Book(6912, "300-3-30-3030-5","Dune", false, ""),
-                new Book(9695, "300-3-30-3030-6","The Hunger Games", true, "Sally Mae"),
-                new Book(8123, "300-3-30-3030-7","A Child Called It", false, ""),
-                new Book(5902, "300-3-30-3030-8","How to Win Friends and Influence People", false, ""),
-                new Book(7546, "300-3-30-3030-9","The 48 Laws of Power", true, "Matt Rinaldo"),
-                new Book(8014, "300-3-30-3030-0","Diary of a Wimpy Kid", true, "Jeff Kinney"),
+                new Book(5123, "583-7-92-4418-8","Harry Potter and the Sorcerer's Stone", false, ""),
+                new Book(2718, "907-9-44-1835-9","Wheel of Time - New Spring", false, ""),
+                new Book(9113, "361-5-67-9281-0","The Stormlight Archive: The Way of Kings", true, "Dave Stein"),
+                new Book(3640, "478-2-39-5562-1","Lone Survivor", true, "George McCartney"),
+                new Book(4912, "652-8-84-1204-2","The Art of War", false, ""),
+                new Book(7190, "129-4-56-7349-3","The Love Hypothesis", true, "Caroline Oak"),
+                new Book(8280, "840-6-71-2987-4","The Fault in Our Stars", false, ""),
+                new Book(6912, "735-1-23-6405-5","Dune", false, ""),
+                new Book(9695, "293-0-88-4156-6","The Hunger Games", true, "Sally Mae"),
+                new Book(8123, "516-9-12-8740-7","A Child Called It", false, ""),
+                new Book(5902, "678-2-35-9021-8","How to Win Friends and Influence People", false, ""),
+                new Book(7546, "442-7-29-6834-9","The 48 Laws of Power", true, "Matt Rinaldo"),
+                new Book(8014, "871-5-64-2097-0","Diary of a Wimpy Kid", true, "Jeff Kinney"),
 
         };
 
@@ -46,12 +46,12 @@ public class Main {
 
             switch (userInput) {
                 case (1):
-                    System.out.println("Showing available books...");
+                    System.out.println("Loading available books...\n********************");
                     listAvailableBooks(bookInventory, keyboard);
                     break;
 
                     case (2):
-                    System.out.println("Showing checked out books...");
+                    System.out.println("Showing checked out books...\n**********");
                     listCheckedOutBooks(bookInventory, keyboard);
                     break;
 
@@ -71,7 +71,8 @@ public class Main {
                 System.out.printf("Book ID: %s\t\t Book ISBN: %s\t\t Book Title: %s\n", book.getBookID(), book.getIsbn(), book.getTitle());
             } // end of if statement
         } // end of for loop
-        System.out.println("Would you like to check out a book? (Y/N)");
+        System.out.println("********************");
+        System.out.print("\nWould you like to check out a book? (Y/N): ");
         String menuInput = keyboard.nextLine().trim();
         char charInput = menuInput.charAt(0);
         if (charInput == 'y' || charInput == 'Y') {
@@ -87,6 +88,7 @@ public class Main {
                 } // end of if statement
                 else {
                     System.out.println("Invalid Book ID");
+                    break;
                 }
             } // end of for each loop
         } // end of if statement
@@ -99,7 +101,8 @@ public class Main {
             } // end of if statement
         } // end of for loop
 
-        System.out.println("Would you like to check in a book? (Y/N)");
+        System.out.println("********************");
+        System.out.print("\nWould you like to check in a book? (Y/N): ");
         String menuInput = keyboard.nextLine().trim();
         char charInput = menuInput.charAt(0);
         if (charInput == 'y' || charInput == 'Y') {
