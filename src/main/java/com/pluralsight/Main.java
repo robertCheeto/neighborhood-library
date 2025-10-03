@@ -35,10 +35,10 @@ public class Main {
                     System.out.println("Would you like to check out a book? (Y/N)");
                     String menuInput = keyboard.nextLine().trim();
                     char charInput = menuInput.charAt(0);
-                    if (charInput == 'y') {
+                    if (charInput == 'y' || charInput == 'Y') {
+                        System.out.println("yes has been selected");
                         // TO-DO: add checkOut method and other code here or where applicable
                     }
-
                     break;
 
                     case (2):
@@ -49,7 +49,6 @@ public class Main {
                     case (3):
                     System.out.println("Exiting the program...");
                     System.exit(0);
-                    // turn true to false and exit program
 
                 default:
                     System.out.println("\n**********\nPlease enter a valid value.");
@@ -60,7 +59,7 @@ public class Main {
 
     public static void listAvailableBooks(Book[] bookInventory, boolean isCheckedOut) {
         for (Book book : bookInventory) {
-            if (book.isCheckedOut() == false) {
+            if (!book.isCheckedOut()) {
                 System.out.printf("Book ID: %s\t\t Book ISBN: %s\t\t Book Title: %s\n", book.getBookID(), book.getIsbn(), book.getTitle());
             } // end of if statement
         } // end of for loop
