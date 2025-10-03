@@ -32,12 +32,11 @@ public class Main {
                 case (1):
                     System.out.println("Showing available books...");
                     listAvailableBooks(bookInventory, keyboard);
-                        // TO-DO: add checkOut method and other code here or where applicable
                     break;
 
                     case (2):
                     System.out.println("Showing checked out books...");
-                    listCheckedOutBooks(bookInventory);
+                    listCheckedOutBooks(bookInventory, keyboard);
                     break;
 
                     case (3):
@@ -47,7 +46,6 @@ public class Main {
                 default:
                     System.out.println("\n**********\nPlease enter a valid value.");
             } // end of switch case
-
         } // end of while loop
     } // end of main()
 
@@ -61,13 +59,12 @@ public class Main {
         String menuInput = keyboard.nextLine().trim();
         char charInput = menuInput.charAt(0);
         if (charInput == 'y' || charInput == 'Y') {
-            System.out.println("yes has been selected");
             System.out.print("Enter in the Book ID you want to check out: ");
             int bookID = keyboard.nextInt();
             keyboard.nextLine();
 
             for (Book book : bookInventory) {
-                if (book.getBookID() == bookID) {
+                if (book.getBookID() == bookID && book.isCheckedOut() == false) {
                     System.out.printf("You are checking out %s, please enter your name: ", book.getTitle());
                     String name = keyboard.nextLine();
                     book.checkOut(name);
@@ -85,6 +82,24 @@ public class Main {
                 System.out.printf("Book ID: %s\t\t Book ISBN: %s\t\t Book Title: %s\t\t Checked Out To: %s\n", book.getBookID(), book.getIsbn(), book.getTitle(), book.getIsCheckedOutTo());
             } // end of if statement
         } // end of for loop
+
+        System.out.println("Would you like to check in a book? (Y/N)");
+        String menuInput = keyboard.nextLine().trim();
+        char charInput = menuInput.charAt(0);
+        if (charInput == 'y' || charInput == 'Y') {
+            System.out.print("Enter in the Book ID you want to check in: ");
+            int bookID = keyboard.nextInt();
+            keyboard.nextLine();
+
+            for (Book book : bookInventory) {
+                if (book.getBookID() == bookID && book.isCheckedOut() == true) {
+                    book.checkIn("");
+                } // end of if statement
+                else {
+                    System.out.println("Invalid Book ID");
+                }
+            } // end of for each loop
+        } // end of if statement
 
     } // end of listCheckedOutBooks
 
