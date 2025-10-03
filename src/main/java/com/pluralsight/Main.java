@@ -57,7 +57,6 @@ public class Main {
                 System.out.printf("Book ID: %s\t\t Book ISBN: %s\t\t Book Title: %s\n", book.getBookID(), book.getIsbn(), book.getTitle());
             } // end of if statement
         } // end of for loop
-
         System.out.println("Would you like to check out a book? (Y/N)");
         String menuInput = keyboard.nextLine().trim();
         char charInput = menuInput.charAt(0);
@@ -72,15 +71,15 @@ public class Main {
                     System.out.printf("You are checking out %s, please enter your name: ", book.getTitle());
                     String name = keyboard.nextLine();
                     book.checkOut(name);
+                } // end of if statement
+                else {
+                    System.out.println("Invalid Book ID");
                 }
-
             } // end of for each loop
         } // end of if statement
-
-
     } // end of listAllBooks
 
-    public static void listCheckedOutBooks(Book[] bookInventory) {
+    public static void listCheckedOutBooks(Book[] bookInventory,Scanner keyboard) {
         for (Book book : bookInventory) {
             if (book.isCheckedOut()) {
                 System.out.printf("Book ID: %s\t\t Book ISBN: %s\t\t Book Title: %s\t\t Checked Out To: %s\n", book.getBookID(), book.getIsbn(), book.getTitle(), book.getIsCheckedOutTo());
