@@ -68,12 +68,16 @@ public class Book {
 
 
     // TO-DO: add code to get the checkOut and checkIn data for the books
-    public void checkOut() {
+    public void checkOut(String title, String name) {
+        System.out.print("Enter a Book Title you would like to check out: ");
+        book.getTitle();
+        System.out.print("Please enter your name: ");
+        book.setIsCheckedOutTo() = book.getIsCheckedOutTo();
 
     } // checkOut method
 
     public void checkIn() {
-
+        // work goes here as well :)
     } // checkIn method
 
 }
