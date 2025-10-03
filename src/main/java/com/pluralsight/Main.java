@@ -32,6 +32,7 @@ public class Main {
                 case (1):
                     System.out.println("Showing available books...");
                     listAvailableBooks(bookInventory, isCheckedOut);
+                    // need to update listAvailableBooks to have the display just show the bookID, isbn, and title
                     break;
                 case (2):
                     System.out.println("Showing checked out books...");
@@ -50,7 +51,7 @@ public class Main {
     public static void listAvailableBooks(Book[] bookInventory, boolean isCheckedOut) {
         for (Book book : bookInventory) {
             if (book.isCheckedOut() == false) {
-                System.out.println(book);
+                System.out.printf("Book ID: %s\t\t Book ISBN: %s\t\t Book Title: %s\n", book.getBookID(), book.getIsbn(), book.getTitle());
             } // end of if statement
         } // end of for loop
     } // end of listAllBooks
@@ -58,7 +59,7 @@ public class Main {
     public static void listCheckedOutBooks(Book[] bookInventory, boolean isCheckedOut) {
         for (Book book : bookInventory) {
             if (book.isCheckedOut()) {
-                System.out.println(book);
+                System.out.printf("Book ID: %s\t\t Book ISBN: %s\t\t Book Title: %s\t\t Checked Out To: %s\n", book.getBookID(), book.getIsbn(), book.getTitle(), book.getIsCheckedOutTo());
             }
         }
 
