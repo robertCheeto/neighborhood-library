@@ -79,7 +79,7 @@ public class Main {
             keyboard.nextLine();
 
             for (Book book : bookInventory) {
-                if (book.getBookID() == bookID && book.isCheckedOut()) {
+                if (book.getBookID() == bookID && !book.isCheckedOut()) {
                     System.out.printf("You are checking out %s, please enter your name: ", book.getTitle());
                     String name = keyboard.nextLine();
                     book.checkOut(name);
@@ -116,7 +116,8 @@ public class Main {
 
             for (Book book : bookInventory) {
                 if (book.getBookID() == bookID && book.isCheckedOut()) {
-                    book.checkIn("");
+                    System.out.println("Your book has been checked back in! Thank you!");
+                    book.checkIn();
                 } // end of if statement
                 else {
                     System.out.println("Invalid Book ID");

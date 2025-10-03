@@ -73,7 +73,7 @@ public class Book {
         isCheckedOut = true;
     } // checkOut method
 
-    public void checkIn(String name) {
+    public void checkIn() {
         this.isCheckedOutTo = "";
         isCheckedOut = false;
     } // checkIn method
