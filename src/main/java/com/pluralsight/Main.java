@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
+        boolean isCheckedOut = true;
 
         Book[] bookInventory = {
                 new Book(0001, "100-1-10-1010-1","Book Title 1", false, ""),
@@ -30,11 +31,11 @@ public class Main {
             switch (userInput) {
                 case (1):
                     System.out.println("Showing available books...");
-                    boolean isCheckedOut = false;
                     listAvailableBooks(bookInventory, isCheckedOut);
                     break;
                 case (2):
                     System.out.println("Showing checked out books...");
+                    listCheckedOutBooks(bookInventory, isCheckedOut);
                     break;
                 case (3):
                     System.out.println("Exiting the program");
@@ -48,10 +49,19 @@ public class Main {
 
     public static void listAvailableBooks(Book[] bookInventory, boolean isCheckedOut) {
         for (Book book : bookInventory) {
-            if (book.isCheckedOut() != true) {
+            if (book.isCheckedOut() == false) {
+                System.out.println(book);
+            } // end of if statement
+        } // end of for loop
+    } // end of listAllBooks
+
+    public static void listCheckedOutBooks(Book[] bookInventory, boolean isCheckedOut) {
+        for (Book book : bookInventory) {
+            if (book.isCheckedOut()) {
                 System.out.println(book);
             }
         }
 
-    } // end of listAllBooks
+    }
+
 }
