@@ -59,7 +59,7 @@ public class Main {
     public static void listCheckedOutBooks(Book[] bookInventory, boolean isCheckedOut) {
         for (Book book : bookInventory) {
             if (book.isCheckedOut()) {
-                System.out.printf("Book ID: %s\t\t Book ISBN: %s\t\t Book Title: %s\t\t Checked Out To: %s\n", book.getBookID(), book.getIsbn(), book.getTitle(), book.getIsCheckedOutTo());
+                System.out.printf(" Book ID: %s\t\t Book ISBN: %s\t\t Book Title: %s\t\t Checked Out To: %s\n", book.getBookID(), book.getIsbn(), book.getTitle(), book.getIsCheckedOutTo());
             }
         }
 
