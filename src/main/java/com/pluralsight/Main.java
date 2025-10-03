@@ -18,7 +18,7 @@ public class Main {
 
         while (true) {
             System.out.println("\nSelect the menu you would like to access by entering the corresponding number\n");
-            System.out.println("1) Show All Books");
+            System.out.println("1) Show All Available Books");
             System.out.println("2) Show Checked Out Books");
             System.out.println("3) Exit Program");
 
@@ -30,7 +30,8 @@ public class Main {
             switch (userInput) {
                 case (1):
                     System.out.println("Showing available books...");
-                    listAllBooks(bookInventory);
+                    boolean isCheckedOut = false;
+                    listAvailableBooks(bookInventory, isCheckedOut);
                     break;
                 case (2):
                     System.out.println("Showing checked out books...");
@@ -45,9 +46,11 @@ public class Main {
         } // end of while loop
     } // end of main()
 
-    public static void listAllBooks(Book[] bookInventory) {
+    public static void listAvailableBooks(Book[] bookInventory, boolean isCheckedOut) {
         for (Book book : bookInventory) {
-            System.out.println(book);
+            if (book.isCheckedOut() != true) {
+                System.out.println(book);
+            }
         }
 
     } // end of listAllBooks
