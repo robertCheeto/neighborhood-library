@@ -8,11 +8,27 @@ public class Main {
         boolean isCheckedOut = true;
 
         Book[] bookInventory = {
-                new Book(0001, "100-1-10-1010-1","Book Title 1", false, ""),
-                new Book(0002, "200-2-20-2020-2","Book Title 2", true, "John Green"),
-                new Book(0003, "300-3-30-3030-3","Book Title 3", false, ""),
-                new Book(0004, "400-4-40-4040-4","Book Title 4", false, ""),
-                new Book(0005, "401-4-41-4141-4","Book Title 4.5", true, "Mary Lou")
+                new Book(1001, "100-1-10-1010-1","To Kill a Mockingbird", false, ""),
+                new Book(1092, "200-2-20-2020-2","The Great Gatsby", true, "John Green"),
+                new Book(3003, "300-3-30-3030-3","All Quiet on the Western Front", true, "Dan Spezialetti"),
+                new Book(7004, "400-4-40-4040-4","1984", false, ""),
+                new Book(4505, "401-9-43-0934-5","Fahrenheit 451", true, "Mary Lou"),
+                new Book(6520, "590-3-30-3030-6","Rich Dad, Poor Dad", false, ""),
+                new Book(8008, "012-8-99-2384-7","The Symposium", true, "Jarred Schlatter"),
+                new Book(5123, "300-3-30-3030-8","Harry Potter and the Sorcerer's Stone", false, ""),
+                new Book(2718, "300-3-30-3030-9","Wheel of Time - New Spring", false, ""),
+                new Book(9113, "300-3-30-3030-0","The Stormlight Archive: The Way of Kings", true, "Dave Stein"),
+                new Book(3640, "300-3-30-3030-1","Lone Survivor", true, "George McCartney"),
+                new Book(4912, "300-3-30-3030-2","The Art of War", false, ""),
+                new Book(7190, "300-3-30-3030-3","The Love Hypothesis", true, "Caroline Oak"),
+                new Book(8280, "300-3-30-3030-4","The Fault in Our Stars", false, ""),
+                new Book(6912, "300-3-30-3030-5","Dune", false, ""),
+                new Book(9695, "300-3-30-3030-6","The Hunger Games", true, "Sally Mae"),
+                new Book(8123, "300-3-30-3030-7","A Child Called It", false, ""),
+                new Book(5902, "300-3-30-3030-8","How to Win Friends and Influence People", false, ""),
+                new Book(7546, "300-3-30-3030-9","The 48 Laws of Power", true, "Matt Rinaldo"),
+                new Book(8014, "300-3-30-3030-0","Diary of a Wimpy Kid", true, "Jeff Kinney"),
+
         };
 
         System.out.println("=== Welcome to the CommUNITY Library ===");
