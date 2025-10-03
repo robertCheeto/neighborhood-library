@@ -31,19 +31,13 @@ public class Main {
             switch (userInput) {
                 case (1):
                     System.out.println("Showing available books...");
-                    listAvailableBooks(bookInventory, isCheckedOut);
-                    System.out.println("Would you like to check out a book? (Y/N)");
-                    String menuInput = keyboard.nextLine().trim();
-                    char charInput = menuInput.charAt(0);
-                    if (charInput == 'y' || charInput == 'Y') {
-                        System.out.println("yes has been selected");
+                    listAvailableBooks(bookInventory, keyboard);
                         // TO-DO: add checkOut method and other code here or where applicable
-                    }
                     break;
 
                     case (2):
                     System.out.println("Showing checked out books...");
-                    listCheckedOutBooks(bookInventory, isCheckedOut);
+                    listCheckedOutBooks(bookInventory);
                     break;
 
                     case (3):
@@ -57,21 +51,42 @@ public class Main {
         } // end of while loop
     } // end of main()
 
-    public static void listAvailableBooks(Book[] bookInventory, boolean isCheckedOut) {
+    public static void listAvailableBooks(Book[] bookInventory, Scanner keyboard) {
         for (Book book : bookInventory) {
             if (!book.isCheckedOut()) {
                 System.out.printf("Book ID: %s\t\t Book ISBN: %s\t\t Book Title: %s\n", book.getBookID(), book.getIsbn(), book.getTitle());
             } // end of if statement
         } // end of for loop
 
+        System.out.println("Would you like to check out a book? (Y/N)");
+        String menuInput = keyboard.nextLine().trim();
+        char charInput = menuInput.charAt(0);
+        if (charInput == 'y' || charInput == 'Y') {
+            System.out.println("yes has been selected");
+            System.out.print("Enter in the Book ID you want to check out: ");
+            int bookID = keyboard.nextInt();
+            keyboard.nextLine();
+
+            for (Book book : bookInventory) {
+                if (book.getBookID() == bookID) {
+                    System.out.printf("You are checking out %s, please enter your name: ", book.getTitle());
+                    String name = keyboard.nextLine();
+                    book.checkOut(name);
+                }
+
+            } // end of for each loop
+        } // end of if statement
+
+
     } // end of listAllBooks
 
-    public static void listCheckedOutBooks(Book[] bookInventory, boolean isCheckedOut) {
+    public static void listCheckedOutBooks(Book[] bookInventory) {
         for (Book book : bookInventory) {
             if (book.isCheckedOut()) {
                 System.out.printf("Book ID: %s\t\t Book ISBN: %s\t\t Book Title: %s\t\t Checked Out To: %s\n", book.getBookID(), book.getIsbn(), book.getTitle(), book.getIsCheckedOutTo());
             } // end of if statement
         } // end of for loop
+
     } // end of listCheckedOutBooks
 
 }
