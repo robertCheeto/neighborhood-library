@@ -32,15 +32,24 @@ public class Main {
                 case (1):
                     System.out.println("Showing available books...");
                     listAvailableBooks(bookInventory, isCheckedOut);
-                    // need to update listAvailableBooks to have the display just show the bookID, isbn, and title
+                    System.out.println("Would you like to check out a book? (Y/N)");
+                    String menuInput = keyboard.nextLine().trim();
+                    char charInput = menuInput.charAt(0);
+                    if (charInput == 'y') {
+                        // TO-DO: add checkOut method and other code here or where applicable
+                    }
+
                     break;
-                case (2):
+
+                    case (2):
                     System.out.println("Showing checked out books...");
                     listCheckedOutBooks(bookInventory, isCheckedOut);
                     break;
-                case (3):
+
+                    case (3):
                     System.out.println("Exiting the program");
                     // turn true to false and exit program
+
                 default:
                     System.out.println("\n**********\nPlease enter a valid value.");
             } // end of switch case
@@ -54,12 +63,13 @@ public class Main {
                 System.out.printf("Book ID: %s\t\t Book ISBN: %s\t\t Book Title: %s\n", book.getBookID(), book.getIsbn(), book.getTitle());
             } // end of if statement
         } // end of for loop
+
     } // end of listAllBooks
 
     public static void listCheckedOutBooks(Book[] bookInventory, boolean isCheckedOut) {
         for (Book book : bookInventory) {
             if (book.isCheckedOut()) {
-                System.out.printf(" Book ID: %s\t\t Book ISBN: %s\t\t Book Title: %s\t\t Checked Out To: %s\n", book.getBookID(), book.getIsbn(), book.getTitle(), book.getIsCheckedOutTo());
+                System.out.printf("Book ID: %s\t\t Book ISBN: %s\t\t Book Title: %s\t\t Checked Out To: %s\n", book.getBookID(), book.getIsbn(), book.getTitle(), book.getIsCheckedOutTo());
             }
         }
 
