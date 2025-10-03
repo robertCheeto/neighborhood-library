@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
-        boolean isCheckedOut = true;
 
         Book[] bookInventory = {
                 new Book(1001, "100-1-10-1010-1","To Kill a Mockingbird", false, ""),
@@ -28,7 +27,6 @@ public class Main {
                 new Book(5902, "678-2-35-9021-8","How to Win Friends and Influence People", false, ""),
                 new Book(7546, "442-7-29-6834-9","The 48 Laws of Power", true, "Matt Rinaldo"),
                 new Book(8014, "871-5-64-2097-0","Diary of a Wimpy Kid", true, "Jeff Kinney"),
-
         };
 
         System.out.println("=== Welcome to the CommUNITY Library ===");
@@ -68,7 +66,7 @@ public class Main {
     public static void listAvailableBooks(Book[] bookInventory, Scanner keyboard) {
         for (Book book : bookInventory) {
             if (!book.isCheckedOut()) {
-                System.out.printf("Book ID: %s\t\t Book ISBN: %s\t\t Book Title: %s\n", book.getBookID(), book.getIsbn(), book.getTitle());
+                System.out.printf("Book ID: %s\t\t Book ISBN: %s\t\t\t Book Title: %s\n", book.getBookID(), book.getIsbn(), book.getTitle());
             } // end of if statement
         } // end of for loop
         System.out.println("********************");
@@ -81,7 +79,7 @@ public class Main {
             keyboard.nextLine();
 
             for (Book book : bookInventory) {
-                if (book.getBookID() == bookID && book.isCheckedOut() == false) {
+                if (book.getBookID() == bookID && book.isCheckedOut()) {
                     System.out.printf("You are checking out %s, please enter your name: ", book.getTitle());
                     String name = keyboard.nextLine();
                     book.checkOut(name);
@@ -92,12 +90,18 @@ public class Main {
                 }
             } // end of for each loop
         } // end of if statement
+        else if (charInput == 'n' || charInput == 'N') {
+            System.out.println("\nReturning to main menu...");
+        }
+        else {
+            System.out.println("\nInvalid input.\t Returning to main menu...");
+        }
     } // end of listAllBooks
 
     public static void listCheckedOutBooks(Book[] bookInventory,Scanner keyboard) {
         for (Book book : bookInventory) {
             if (book.isCheckedOut()) {
-                System.out.printf("Book ID: %s\t\t Book ISBN: %s\t\t Book Title: %s\t\t Checked Out To: %s\n", book.getBookID(), book.getIsbn(), book.getTitle(), book.getIsCheckedOutTo());
+                System.out.printf("Book ID: %s\t\t Book ISBN: %s\t\t Book Title: %s\t\t\t Checked Out To: %s\n", book.getBookID(), book.getIsbn(), book.getTitle(), book.getIsCheckedOutTo());
             } // end of if statement
         } // end of for loop
 
@@ -111,15 +115,21 @@ public class Main {
             keyboard.nextLine();
 
             for (Book book : bookInventory) {
-                if (book.getBookID() == bookID && book.isCheckedOut() == true) {
+                if (book.getBookID() == bookID && book.isCheckedOut()) {
                     book.checkIn("");
                 } // end of if statement
                 else {
                     System.out.println("Invalid Book ID");
-                }
+                    break;
+                } // end of else statement
             } // end of for each loop
         } // end of if statement
-
+        else if (charInput == 'n' || charInput == 'N') {
+            System.out.println("\nReturning to main menu...");
+        }
+        else {
+            System.out.println("\nInvalid input.\t Returning to main menu...");
+        }
     } // end of listCheckedOutBooks
 
 }
