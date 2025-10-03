@@ -71,11 +71,13 @@ public class Book {
     public void checkOut(String name) {
         this.isCheckedOutTo = name;
         isCheckedOut = true;
+
     } // checkOut method
 
     public void checkIn() {
         this.isCheckedOutTo = "";
         isCheckedOut = false;
+        System.out.println("Your book has been checked back in! Thank you!");
     } // checkIn method
 
 }
