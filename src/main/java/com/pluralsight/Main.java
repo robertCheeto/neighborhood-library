@@ -26,7 +26,7 @@ public class Main {
                 new Book(8123, "516-9-12-8740-7","A Child Called It", false, ""),
                 new Book(5902, "678-2-35-9021-8","How to Win Friends and Influence People", false, ""),
                 new Book(7546, "442-7-29-6834-9","The 48 Laws of Power", true, "Matt Rinaldo"),
-                new Book(8014, "871-5-64-2097-0","Diary of a Wimpy Kid", true, "Jeff Kinney"),
+                new Book(8014, "871-5-64-2097-0","Diary of a Wimpy Kid", true, "Jeff Kinney")
         };
 
         System.out.println("=== Welcome to the CommUNITY Library ===");
@@ -83,11 +83,12 @@ public class Main {
                     System.out.printf("You are checking out %s, please enter your name: ", book.getTitle());
                     String name = keyboard.nextLine();
                     book.checkOut(name);
-                } // end of if statement
-                else {
-                    System.out.println("Invalid Book ID");
                     break;
-                }
+                } // end of if statement
+//                else {
+//                    System.out.println("Invalid Book ID");
+//                    break;
+//                }
             } // end of for each loop
         } // end of if statement
         else if (charInput == 'n' || charInput == 'N') {
@@ -116,13 +117,16 @@ public class Main {
 
             for (Book book : bookInventory) {
                 if (book.getBookID() == bookID && book.isCheckedOut()) {
-                    System.out.println("Your book has been checked back in! Thank you!");
                     book.checkIn();
                 } // end of if statement
+                else if (book.getBookID() == bookID && !book.isCheckedOut()) {
+                    System.out.println("That book is still available!");
+                    break;
+                } // end of else-if statement
                 else {
                     System.out.println("Invalid Book ID");
-                    break;
-                } // end of else statement
+//                    break;
+                }
             } // end of for each loop
         } // end of if statement
         else if (charInput == 'n' || charInput == 'N') {
